@@ -444,6 +444,7 @@ void loadGame (int board[][50], int &n, player &p1, player &p2, int &decision, i
     printf("%s have %d walls\n", p1.name, p1.wallNumber);
     printf("%s have %d walls\n", p2.name, p2.wallNumber);
     printBoard(board, 2*n +1);
+
 }
 
 int main(void) {
