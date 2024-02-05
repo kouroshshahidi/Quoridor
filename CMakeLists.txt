@@ -9,4 +9,5 @@ add_executable(quoridor main.cpp
         player.h
         move_system.h
         dfs.h
+        save.h
 )
