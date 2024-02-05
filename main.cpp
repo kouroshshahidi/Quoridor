@@ -1,6 +1,8 @@
-#include <iostream>
+#include <stdio.h>
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+void swap (int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
 }
+
