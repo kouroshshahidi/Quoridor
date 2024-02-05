@@ -5,6 +5,7 @@
 #include <string.h>
 #include "magic.h"
 #include "player.h"
+#include "move_system.h"
 
 //data storage
 //struct player{
@@ -169,23 +170,23 @@ void computer (int board[][50], player &p1, int n) {
     }
 }
 
-int checkObstruction(int board[][50] , player player , char direction){
-    int currentX =2*(player.x)+1, currentY = 2*(player.y)+1;
-    if(direction == 'w'){
-        if(board[currentY-1][currentX]== 1 || board[currentY-2][currentX] >2) return 1;
-    }
-    else if(direction == 's'){
-        if(board[currentY +1][currentX]== 1 || board[currentY+2][currentX] >2) return 1;
-    }
-    else if(direction == 'a'){
-        if(board[currentY][currentX-1]== 1 || board[currentY][currentX-2] >2) return 1;
-    }
-    else if(direction == 'd'){
-        if(board[currentY][currentX+1]== 1 || board[currentY][currentX+2] >2) return 1;
-    }
-
-    return 0;
-}
+//int checkObstruction(int board[][50] , player player , char direction){
+//    int currentX =2*(player.x)+1, currentY = 2*(player.y)+1;
+//    if(direction == 'w'){
+//        if(board[currentY-1][currentX]== 1 || board[currentY-2][currentX] >2) return 1;
+//    }
+//    else if(direction == 's'){
+//        if(board[currentY +1][currentX]== 1 || board[currentY+2][currentX] >2) return 1;
+//    }
+//    else if(direction == 'a'){
+//        if(board[currentY][currentX-1]== 1 || board[currentY][currentX-2] >2) return 1;
+//    }
+//    else if(direction == 'd'){
+//        if(board[currentY][currentX+1]== 1 || board[currentY][currentX+2] >2) return 1;
+//    }
+//
+//    return 0;
+//}
 
 void makeClone (int n, int board[][50], int clonedBoard[][50]) {
     for (int i = 0; i < n; ++i) {
@@ -271,48 +272,48 @@ int printBoard(int arr[][50], int n) {
     return 0;
 }
 
-int move(int board[][50],player &player , char direction){
-    if(direction == 'w' && !checkObstruction(board, player, 'w')){
-        board[2*(player.y) +1][2*(player.x) +1] = 2;
-        player.y--;
-        if(player.id == 1)
-            board[2*(player.y) +1][2*(player.x) +1] = 3;
-        else
-            board[2*(player.y) +1][2*(player.x) +1] = 4;
-        return 1;
-    }
-
-    else if(direction == 'a' && !checkObstruction(board, player, 'a')){
-        board[2*(player.y) +1][2*(player.x) +1] = 2;
-        player.x--;
-        if(player.id == 1)
-            board[2*(player.y) +1][2*(player.x) +1] = 3;
-        else
-            board[2*(player.y) +1][2*(player.x) +1] = 4;
-        return 1;
-    }
-
-    else if(direction == 'd' && !checkObstruction(board, player, 'd')){
-        board[2*(player.y) +1][2*(player.x) +1] = 2;
-        player.x++;
-        if(player.id == 1)
-            board[2*(player.y) +1][2*(player.x) +1] = 3;
-        else
-            board[2*(player.y) +1][2*(player.x) +1] = 4;
-        return 1;
-    }
-
-    else if(direction == 's' && !checkObstruction(board, player, 's')){
-        board[2*(player.y) +1][2*(player.x) +1] = 2;
-        player.y++;
-        if(player.id == 1)
-            board[2*(player.y) +1][2*(player.x) +1] = 3;
-        else
-            board[2*(player.y) +1][2*(player.x) +1] = 4;
-        return 1;
-    }
-    return 0;
-}
+//int move(int board[][50],player &player , char direction){
+//    if(direction == 'w' && !checkObstruction(board, player, 'w')){
+//        board[2*(player.y) +1][2*(player.x) +1] = 2;
+//        player.y--;
+//        if(player.id == 1)
+//            board[2*(player.y) +1][2*(player.x) +1] = 3;
+//        else
+//            board[2*(player.y) +1][2*(player.x) +1] = 4;
+//        return 1;
+//    }
+//
+//    else if(direction == 'a' && !checkObstruction(board, player, 'a')){
+//        board[2*(player.y) +1][2*(player.x) +1] = 2;
+//        player.x--;
+//        if(player.id == 1)
+//            board[2*(player.y) +1][2*(player.x) +1] = 3;
+//        else
+//            board[2*(player.y) +1][2*(player.x) +1] = 4;
+//        return 1;
+//    }
+//
+//    else if(direction == 'd' && !checkObstruction(board, player, 'd')){
+//        board[2*(player.y) +1][2*(player.x) +1] = 2;
+//        player.x++;
+//        if(player.id == 1)
+//            board[2*(player.y) +1][2*(player.x) +1] = 3;
+//        else
+//            board[2*(player.y) +1][2*(player.x) +1] = 4;
+//        return 1;
+//    }
+//
+//    else if(direction == 's' && !checkObstruction(board, player, 's')){
+//        board[2*(player.y) +1][2*(player.x) +1] = 2;
+//        player.y++;
+//        if(player.id == 1)
+//            board[2*(player.y) +1][2*(player.x) +1] = 3;
+//        else
+//            board[2*(player.y) +1][2*(player.x) +1] = 4;
+//        return 1;
+//    }
+//    return 0;
+//}
 
 int cloneMove(int board[][50],player &player , char direction){
     if(direction == 'w' && !checkObstruction(board, player, 'w')){
@@ -561,7 +562,7 @@ int main(void) {
                         int sw;
                         char dir;
                         do {
-                            printf("use WASD to move");
+                            printf("use WASD to move :");
                             scanf(" %c" , &dir);
                             sw = move(board,p2, dir);
                         } while (!sw);

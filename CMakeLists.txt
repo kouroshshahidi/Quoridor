@@ -7,4 +7,5 @@ add_executable(quoridor main.cpp
         board.cpp
         magic.h
         player.h
+        move_system.h
 )
