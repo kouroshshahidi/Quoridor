@@ -3,6 +3,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
+#include <windows.h>
 #include "magic.h"
 #include "player.h"
 #include "move_system.h"
@@ -157,6 +158,7 @@ int main(void) {
 //move system
     if (swLoad == 1) turn = 2;
     printf("\n");
+    Sleep(2000);
     printBoard(board , 2*n +1);
     printf("\n");
 
@@ -168,6 +170,7 @@ int main(void) {
         int moveID;
 
         if (p2.numOfBlock == 0 && turn == 2) {
+            Sleep(2000);
             printf("**%s turn**\n", p2.name);
             magic(board, n, p2, p1);
             if (p2.numOfBlock == 0) {
@@ -236,6 +239,7 @@ int main(void) {
         //player 1 does something
 
         if (p1.numOfBlock == 0 && turn == 1) {
+            Sleep(2000);
             printf("**%s turn**\n", p1.name);
             magic(board, n, p1, p2);
             if (p1.numOfBlock == 0) {
