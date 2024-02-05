@@ -54,20 +54,20 @@ void computer (int board[][50], player &p1, int n) {
     }
 }
 
-int printBoard(int arr[][50], int n) {
+int printBoard(int board[][50], int n) {
     int sw = 0;
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
 
-            if (arr[i][j] == 1 && (j == 0 || j == n - 1)) printf("%c%c%c", 124, 254, 124);
-            else if (arr[i][j] == 1 && (j == 0 || j == n - 1))printf("%c%c%c", 124, 254, 124);
-            else if (arr[i][j] == 0 && j % 2 == 0) printf("%c %c", 124, 124);
-            else if (arr[i][j] == 1 && j % 2 == 0) printf("|%c|", 254);
-            else if (arr[i][j] == 1 && j % 2 == 1) printf("%c%c%c%c%c", 196, 124, 254, 124, 196);
-            else if (arr[i][j] == 0 && j % 2 == 1) printf("%c%c%c%c%c", 196, 196, 196, 196, 196);
-            else if (arr[i][j] == 2) printf("     ");
-            else if (arr[i][j] == 3) wprintf(L"  %c  ", 0x2606);
-            else if (arr[i][j] == 4) wprintf(L"  %c  ", 0x2604);
+            if (board[i][j] == 1 && (j == 0 || j == n - 1)) printf("%c%c%c", 124, 254, 124);
+            else if (board[i][j] == 1 && (j == 0 || j == n - 1))printf("%c%c%c", 124, 254, 124);
+            else if (board[i][j] == 0 && j % 2 == 0) printf("%c %c", 124, 124);
+            else if (board[i][j] == 1 && j % 2 == 0) printf("|%c|", 254);
+            else if (board[i][j] == 1 && j % 2 == 1) printf("%c%c%c%c%c", 196, 124, 254, 124, 196);
+            else if (board[i][j] == 0 && j % 2 == 1) printf("%c%c%c%c%c", 196, 196, 196, 196, 196);
+            else if (board[i][j] == 2) printf("     ");
+            else if (board[i][j] == 3) wprintf(L"  %c  ", 0x2606);
+            else if (board[i][j] == 4) wprintf(L"  %c  ", 0x2604);
             sw++;
         }
         printf("\n");
