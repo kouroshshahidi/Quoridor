@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <wchar.h>
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
@@ -180,6 +179,9 @@ int main(void) {
                         if(moveID == 1) {
                             break;
                         }
+                        else if (moveID == 2 && p1.wallNumber == 0) {
+                            printf("you haven't enough walls!!\n");
+                        }
                         else if (moveID == 3) {
                             // save the game
                             saveGame(board, n, p1, p2, decision, turn);
@@ -194,6 +196,7 @@ int main(void) {
                             printf("use WASD to move :");
                             scanf(" %c" , &dir);
                             sw = move(board,p2, dir);
+                            if (sw == 0) printf("you cant move in this direction!!\n");
                         } while (!sw);
                     }else{
                         int x , y , sw = -1 , sw1 = 0;
@@ -249,6 +252,9 @@ int main(void) {
                     if(moveID == 1) {
                         break;
                     }
+                    else if (moveID == 2 && p1.wallNumber == 0) {
+                        printf("you haven't enough walls!!\n");
+                    }
                     else if (moveID == 3) {
                         //save the game
                         saveGame(board, n, p1, p2, decision, turn);
@@ -263,6 +269,7 @@ int main(void) {
                         printf("use WASD to move :");
                         scanf(" %c" , &dir);
                         sw = move(board,p1, dir);
+                        if (sw == 0) printf("you cant move in this direction!!\n");
                     } while (!sw);
                 }else{
                     int x , y ,sw = -1 , sw1 =0;
