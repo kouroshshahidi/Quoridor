@@ -3,13 +3,8 @@
 
 #include <stdlib.h>
 #include "player.h"
-//struct player{
-//    int id;
-//    char name[20];
-//    int x ,y;
-//    int wallNumber;
-//    int numOfBlock = 0;
-//};
+
+
 char spells[5][50] = {"delete all walls placed in board", "reduce players walls", "block for 1 or 2 round"
         , "increase players walls", "increase walls by reducing another players walls"};
 
@@ -23,7 +18,6 @@ void deleteAllWalls (int board[][50], int n) {
 }
 
 int reducePlayersWalls (player &player) {
-//    srand (time(NULL));
     if (player.wallNumber < 2) {
         printf("%s already has not enough walls\n", player.name);
         return 0;

@@ -10,4 +10,5 @@ add_executable(quoridor main.cpp
         move_system.h
         dfs.h
         save.h
+        change_walls.h
 )
