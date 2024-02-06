@@ -6,7 +6,7 @@
 
 void saveGame (int board[][50], int &n, player &p1, player &p2, int &decision, int &turn) {
     FILE *inputFile1, *inputFile2;
-    inputFile1 = fopen("E:\\project\\quoridor\\save\\board.dat", "wb");
+    inputFile1 = fopen("save\\board.dat", "wb");
     for (int i = 0; i < 50; ++i) {
         fwrite(board[i], sizeof(int), 50, inputFile1);
     }
@@ -14,7 +14,7 @@ void saveGame (int board[][50], int &n, player &p1, player &p2, int &decision, i
     fwrite(&decision, sizeof(int), 1, inputFile1);
     fwrite(&turn, sizeof(int), 1, inputFile1);
 
-    inputFile2 = fopen("E:\\project\\quoridor\\save\\player.dat", "wb");
+    inputFile2 = fopen("save\\player.dat", "wb");
     fwrite(&p1, sizeof(player), 1, inputFile2);
     fwrite(&p2, sizeof(player), 1, inputFile2);
     fclose(inputFile1);

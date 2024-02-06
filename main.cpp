@@ -75,6 +75,10 @@ int printBoard(int board[][50], int n) {
     return 0;
 }
 
+void clear (void) {
+    system("cls");
+}
+
 int main(void) {
     srand (time(NULL));
 //makes n by n board and makes it look good
@@ -179,7 +183,7 @@ int main(void) {
                         if(moveID == 1) {
                             break;
                         }
-                        else if (moveID == 2 && p1.wallNumber == 0) {
+                        else if (moveID == 2 && p2.wallNumber == 0) {
                             printf("you haven't enough walls!!\n");
                         }
                         else if (moveID == 3) {
@@ -237,6 +241,11 @@ int main(void) {
 
         }
 
+
+        if (p2.y == 0) {
+            printf("%s win", p2.name);
+            return 0;
+        }
 
         //player 1 does something
 
@@ -304,6 +313,11 @@ int main(void) {
         }
 
 //        printf("-----------------------------------------------------\n");
+
+        char ch;
+        scanf("%c", &ch);
+        scanf("%c", &ch);
+        clear();
 
     }
 

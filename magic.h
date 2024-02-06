@@ -37,7 +37,6 @@ int reducePlayersWalls (player &player) {
 }
 
 void block (player &player) {
-//    srand ((unsigned)time(0));
     int chance;
     chance = rand() % 2 + 1;
     printf("%s you're blocked from moving for %d round\n", player.name, chance);
@@ -53,7 +52,7 @@ void increasePlayerWalls (player &player) {
     printf("now you have %d walls\n", player.wallNumber);
 }
 
-int changeNumOfWalls (player &p1, player &p2) {
+int tradeNumOfWalls (player &p1, player &p2) {
 //    srand (time(NULL));
     if (p2.wallNumber == 0) {
         printf("%s already has 0 walls\n", p2.name);
@@ -94,7 +93,7 @@ void magic (int board[][50], int n, player &player1, player &player2) {
             deleteAllWalls(board, n);
             break;
         case 4:
-            changeNumOfWalls(player1, player2);
+            tradeNumOfWalls(player1, player2);
             break;
 
     }
